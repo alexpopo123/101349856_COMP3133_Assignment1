@@ -7,5 +7,4 @@ const employeeSchema = new Schema({
   gender: String,
   salary: Number,
 })
-
 module.exports = model('Employee', employeeSchema)

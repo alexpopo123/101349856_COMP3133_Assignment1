@@ -42,14 +42,6 @@ module.exports = {
       return updatedUser
     },
 
-    async deleteUser(_, { id }) {
-      const deletedUser = await User.findByIdAndDelete(id)
-      if (!deletedUser) {
-        throw new Error("User not found")
-      }
-      return "User deleted"
-    },
-
     async login(_, { input: { email, password } }) {
       const user = await User.findOne({ email })
       if (!user) {
@@ -59,8 +51,18 @@ module.exports = {
       if (!validPassword) {
         throw new Error("Incorrect password")
       }
-      // change return value to logged in
+    
       return user
     },
+    
+    async deleteUser(_, { id }) {
+      const deletedUser = await User.findByIdAndDelete(id)
+      if (!deletedUser) {
+        throw new Error("User not found")
+      }
+      return "User deleted"
+    },
+
+    
   },
 }

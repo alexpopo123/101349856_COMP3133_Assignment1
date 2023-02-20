@@ -20,5 +20,4 @@ const userSchema = new Schema({
     minLength: 8,
   },
 })
-
 module.exports = model("User", userSchema)
