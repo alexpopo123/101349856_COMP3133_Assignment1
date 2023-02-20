@@ -16,7 +16,7 @@ module.exports = {
       { EmployeeInput: { first_name, last_name, email, gender, salary } }
     ) {
       if (!first_name || !last_name || !email || !gender || !salary) {
-        throw new Error("One or more fields are empty")
+        throw new Error("empty")
       }
 
       const createdEmployee = new Employee({
@@ -27,7 +27,7 @@ module.exports = {
         salary: salary,
       })
 
-      const res = await createdEmployee.save() // MongoDB saving
+      const res = await createdEmployee.save() 
       console.log(res)
 
       return {
